@@ -2,7 +2,7 @@
 include('session.php');
 include('template/header.php');
 include 'cekrole.php';
-// die(cekrole("lori"));
+die(cekrole("lori"));
 // echo "sad";
 ?>
 
