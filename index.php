@@ -1,6 +1,6 @@
 <?php
 include('session.php');
-include('template/header.php');
+include('templates/header.php');
 include 'cekrole.php';
 die(cekrole("lori"));
 // echo "sad";
