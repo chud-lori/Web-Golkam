@@ -1,7 +1,8 @@
 <?php
 // Start session
 session_start();
-include '../con.php';
+require_once '../../con.php';
+// include('../sessionAdmin.php');
 $error=''; // variable to save errors
 if(isset($_POST['submit'])){
 	if (empty($_POST['username']) || empty($_POST['password'])){
@@ -18,7 +19,7 @@ if(isset($_POST['submit'])){
 		// // $w=mysqli_stmt_store_result($login);
 
 		// Another way 
-		$queryLogin = "select * from users where username='$username' and role='member'";
+		$queryLogin = "select * from users where username='$username' and role='admin'";
 		$resultLogin = mysqli_query($con, $queryLogin);
 		$data = mysqli_fetch_array($resultLogin);
 		// if ("") {
@@ -30,11 +31,11 @@ if(isset($_POST['submit'])){
 		if (mysqli_num_rows($resultLogin) > 0) {
 			// Verify password bcrypt hash
 			if (password_verify($password, $data['password'])) {
-				$_SESSION['login_user'] =  $username;// Membuat sesi/session
-				$data_user = mysqli_query($konek, "select * from users where username='$username' and role='member'");
+				$_SESSION['login_admin'] =  $username;// Membuat sesi/session
+				$data_user = mysqli_query($konek, "select * from users where username='$username'");
 				$data = mysqli_fetch_array($data_user);
 				$_SESSION['role_user'] = $data['role']; // Role user session
-				header("location: profile.php"); // Mengarahkan ke halaman profil
+				header("location: ../.php"); // Mengarahkan ke halaman profil
 			}
 			else {
 				// Password wrong return alert
