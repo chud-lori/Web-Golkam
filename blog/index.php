@@ -17,10 +17,11 @@
     require_once '../con.php';
     // Search
     $searchSubmit = $_GET['search'];
-    $keyword = $_GET['keyword'];
+    $keyword = htmlentities($_GET['keyword']);
     if (isset($searchSubmit)) {
         $keywordQuery = "select contents.*, users.name from contents, users where users.id_user = contents.id_user and title like '%$keyword%'";
         $resultKeyword = mysqli_query($con, $keywordQuery);
+        echo "<h2>Hasil pencarian untuk $keyword</h2>";
         if (mysqli_num_rows($resultKeyword) > 0) {
             while ($dataSearch = mysqli_fetch_array($resultKeyword)) {
                 ?>

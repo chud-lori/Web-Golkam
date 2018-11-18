@@ -64,19 +64,26 @@
             $errors[] = "This file is more than 2MB. Sorry, it has to be less than or equal to 2MB; ".$_FILES['img_content']['error'];
         }
 
-        if (empty($errors)) {
-            $didUpload = move_uploaded_file($fileTmpName, $uploadPath);
-        } else {
-            foreach ($errors as $error) {
-                echo $error . "These are the errors" . "\n";
+        if ($post) {
+            if (empty($errors)) {
+                $didUpload = move_uploaded_file($fileTmpName, $uploadPath);
+                if ($didUpload) {
+                    session_start();
+                    $_SESSION['postStore'] = 'Posted!!';
+                    header("Location: ../index.php");
+                    exit();
+                }
+                else {
+                    $_SESSION['postStore'] = 'Failed to Post!!';
+                    header("Location: ../index.php");
+                    exit();
+                }
+            } else {
+                foreach ($errors as $error) {
+                    echo $error . "These are the errors" . "\n";
+                }
             }
-        }
-
-        if ($post && $didUpload) {
-            session_start();
-            $_SESSION['postStore'] = 'Posted!!';
-            header("Location: ../index.php");
-            exit();
+            
         }
         else {
             $_SESSION['postStore'] = 'Failed to Post!!';

@@ -1,0 +1,9 @@
+Admin:
+- Add lesson
+- Remove lesson and Member taken on lesson deleted
+- Login
+
+Member:
+- Add, Edit, Delete Content
+- Register, Login, Logout
+- Take lesson

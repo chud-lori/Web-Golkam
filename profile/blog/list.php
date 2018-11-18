@@ -57,7 +57,7 @@ if(isset($_SESSION['login_user'])) {
             while ($data = mysqli_fetch_array($res)) {
             ?>
             <tr>
-                <td><a href="../../blog/article.php?id=<?php echo $data['title']; ?>"><?php echo htmlentities($data['title']); ?></a></td>
+                <td><a href="../../blog/article.php?id=<?php echo $data['id_content']; ?>"><?php echo htmlentities($data['title']); ?></a></td>
                 <td><?php echo substr($data['body'], 0, 8). '...'; ?></td>
                 <td><a href="edit.php?id=<?php echo $data['id_content']; ?>">Edit</a></td>
                 <td><a href="delete.php?id=<?php echo $data['id_content']; ?>" onclick="return confirm('Tenane?')">Delete</a></td>

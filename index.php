@@ -1,9 +1,7 @@
 <?php
 include('session.php');
 include('templates/header.php');
-include 'cekrole.php';
-die(cekrole("lori"));
-// echo "sad";
+
 ?>
 
 <h1>Hello Home Page</h1>

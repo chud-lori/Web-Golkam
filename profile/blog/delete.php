@@ -3,7 +3,7 @@
 require_once '../../con.php';
 
 // Cek if clicked
-if (isset($_POST['delete'])) {
+if (isset($_GET['id'])) {
 
     // Get sent data
    $idContent = $_GET['id'];
