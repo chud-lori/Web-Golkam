@@ -1,3 +1,9 @@
+<?php
+    include '../templates/header.php';
+    // config
+    require_once '../con.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,9 +18,6 @@
         <input type="submit" value="Cari" name="search">
     </form>
     <?php
-    include '../templates/header.php';
-    // config
-    require_once '../con.php';
     // Search
     $searchSubmit = $_GET['search'];
     $keyword = htmlentities($_GET['keyword']);

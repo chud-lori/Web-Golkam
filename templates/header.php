@@ -8,10 +8,11 @@
 </head>
 <body>
 <?php
-include('session.php');
+include('../session.php');
 ?>
 <nav>
 <?php
+
 if (isset($_SESSION['login_user'])) {
     ?>
     <h1>Halo <?php echo $_SESSION['login_user'] ?></h1>
@@ -20,8 +21,8 @@ if (isset($_SESSION['login_user'])) {
 }
 else{
     ?>
-    <h1><a href="login/">Login</a></h1><br>
-    <h1><a href="register/">Register</a></h1><br>
+    <h1><a href="/golkam/login/">Login</a></h1><br>
+    <h1><a href="/golkam/register/">Register</a></h1><br>
 <?php
 }
 ?>
