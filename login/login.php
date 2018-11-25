@@ -20,23 +20,21 @@ if(isset($_POST['submit'])){
 		// Another way
 		$queryLogin = "select * from users where username='$username' and role='member'";
 		$resultLogin = mysqli_query($con, $queryLogin);
-		$data = mysqli_fetch_array($resultLogin);
-		// if ("") {
-		// 	# code...
-		// } else {
-		// 	# code...
-		// }
 
 		if (mysqli_num_rows($resultLogin) > 0) {
+			// Get user data
+			$data = mysqli_fetch_array($resultLogin);
 			// Verify password bcrypt hash
 			if (password_verify($password, $data['password'])) {
 				$_SESSION['login_user'] =  $username;// Membuat sesi/session
 				// Cek Remember me
 				if (isset($_POST['remember'])) {
 					// buat cookie
-					setcookie('login_user', $username, time() + 60);
+					setcookie('id', $data['id_user'], time() + (60 * 60 * 24 * 30));
+					setcookie('key', hash('sha256', $data['username']), time() + (60 * 60 * 24 * 30)); //(60 * 60 * 24 * 30)
 				}
-				header("location: profile.php"); // Mengarahkan ke halaman profil
+				// Redirect to profile page
+				header("location: profile.php");
 			}
 			else {
 				// Password wrong return alert

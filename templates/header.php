@@ -13,10 +13,15 @@ include('../session.php');
 <nav>
 <?php
 
-if (isset($_SESSION['login_user'])) {
+// Check cookie
+if (isset($_COOKIE['login_user'])) {
+  $_SESSION['login_user'] = $_COOKIE['login_user'];
+}
+
+if(isset($_SESSION['login_user'])){
     ?>
     <h1>Halo <?php echo $_SESSION['login_user'] ?></h1>
-    <span><a href="profile">Masuk profile</a></span>
+    <span><a href="/golkam/profile">Masuk profile</a></span>
 <?php
 }
 else{
@@ -27,6 +32,6 @@ else{
 }
 ?>
 </nav>
-    
+
 </body>
 </html>

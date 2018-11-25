@@ -26,7 +26,8 @@ if(isset($_SESSION['login_admin'])) {
 	<b id="logout"><a href="logout.php">Log Out</a></b>
 	<hr>
 	<a href="addlesson.php">Add Lesson</a><br>
-	<a href="listlesson.php">List Lesson</a>
+	<a href="listlesson.php">List Lesson</a><br>
+	<a href="listmember.php">List Members</a>
 </body>
 </html>
 <?php
