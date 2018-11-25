@@ -51,6 +51,7 @@
                 <ul>
                     <li>
                         <a href="article.php?id=<?php echo $data['id_content'];?>"><?php echo $data['title'];?></a><br>
+                        <p><?php echo substr(htmlentities($data['body']), 0, 100). '...'; ?></p>
                         <span>Ditulis oleh: <?php echo $data['name']; ?></span>
                     </li>
                 </ul>

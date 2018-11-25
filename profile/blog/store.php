@@ -7,7 +7,6 @@
     $title = $_POST['title_content'];
     $title = htmlentities($title);
     $body = $_POST['body_content'];
-    $body = htmlentities($body);
     $submit = $_POST['submit_content'];
     $user = $_SESSION['login_user'];
     // Get directory
@@ -36,7 +35,7 @@
         }
     }
     $fileName = fileNameRecu($fileName);
-    
+
     // Get file data
     $fileSize = $_FILES['img_content']['size'];
     $fileTmpName  = $_FILES['img_content']['tmp_name'];
@@ -83,7 +82,7 @@
                     echo $error . "These are the errors" . "\n";
                 }
             }
-            
+
         }
         else {
             $_SESSION['postStore'] = 'Failed to Post!!';
@@ -95,4 +94,3 @@
 
 
 ?>
-
