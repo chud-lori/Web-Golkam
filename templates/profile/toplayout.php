@@ -85,12 +85,6 @@
             die("Connection failed: " . $conn->connect_error);
         } 
 
-        // Get user data
-        $username = $_SESSION['login_user'];
-        $user = "select * from users where username='$username'";
-        $resUser = mysqli_query($con, $user);
-        $dataUser = mysqli_fetch_array($resUser);
-        $name = $dataUser['name'];
     ?>
     <div id="wrapper">
         <!-- Navigation -->
@@ -103,7 +97,7 @@
                 <ul class="nav navbar-top-links navbar-right pull-right">
                     <!-- /.dropdown -->
                     <li class="dropdown">
-                        <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php echo $name; ?></b> </a>
+                        <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"><b class="hidden-xs"><?php echo $_SESSION['name']; ?></b> </a>
                         <ul class="dropdown-menu dropdown-user animated flipInY">
                             <li><a href="/golkam/profile/logout.php"><i class="fa fa-power-off"></i> Logout</a></li>
                         </ul>
@@ -130,7 +124,7 @@
                         <!-- /input-group -->
                     </li>
                     <li class="user-pro">
-                        <a href="#" class="waves-effect"> <span class="hide-menu"> <?php echo $name; ?><span class="fa arrow"></span></span>
+                        <a href="#" class="waves-effect"> <span class="hide-menu"> <?php echo $_SESSION['name']; ?><span class="fa arrow"></span></span>
                         </a>
                         <ul class="nav nav-second-level">
                             <li><a href="/golkam/profile/logout.php"><i class="fa fa-power-off"></i> Logout</a></li>

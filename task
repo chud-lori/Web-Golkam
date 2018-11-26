@@ -1,9 +1,12 @@
 Admin:
-- Add lesson
-- Remove lesson and Member taken on lesson deleted
-- Login
+- Add lesson DONE
+- Remove lesson and Member taken on lesson deleted DONE
+- Login DONE
 
 Member:
-- Add, Edit, Delete Content
-- Register, Login, Logout
-- Take lesson
+- Add, Edit, Delete Content DONE
+- Register, Login, Logout DONE
+- Take lesson DONE
+
+
+SETCOOKIE DESTROY

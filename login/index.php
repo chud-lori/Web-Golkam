@@ -1,24 +1,24 @@
 <?php
 include('login.php'); // Memasuk-kan skrip Login
 include('../session.php');
-// error_reporting(E_ALL); ini_set('display_errors', '1');
+error_reporting(E_ALL); ini_set('display_errors', '1');
 
-// // Check cookie
-// if (isset($_COOKIE['id']) && isset($_COOKIE['key'])) {
-//   // Initiaion to variable
-//   $id  = $_COOKIE['id'];
-//   $key = $_COOKIE['key'];
-//
-//   // Get user data from id
-//   $result = mysqli_query($con, "select * from users where id_user = '$id' and role='member'");
-//   $row    = mysqli_fetch_array($result);
-//
-//   // Check cookie and username
-//   if ($key === hash('sha256', $row['username'])) {
-//     // Duplicate session
-//     $_SESSION['login_user'] =  $row['username'];
-//   }
-// }
+// Check cookie
+if (isset($_COOKIE['id']) && isset($_COOKIE['key'])) {
+  // Initiaion to variable
+  $id  = $_COOKIE['id'];
+  $key = $_COOKIE['key'];
+
+  // Get user data from id
+  $result = mysqli_query($con, "select * from users where id_user = '$id' and role='member'");
+  $row    = mysqli_fetch_array($result);
+
+  // Check cookie and username
+  if ($key === hash('sha256', $row['username'])) {
+    // Duplicate session
+    $_SESSION['login_user'] =  $row['username'];
+  }
+}
 
 if(isset($_SESSION['login_user'])){
     header("location: ../profile");

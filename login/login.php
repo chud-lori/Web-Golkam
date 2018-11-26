@@ -26,12 +26,14 @@ if(isset($_POST['submit'])){
 			$data = mysqli_fetch_array($resultLogin);
 			// Verify password bcrypt hash
 			if (password_verify($password, $data['password'])) {
-				$_SESSION['login_user'] =  $username;// Membuat sesi/session
+				// Create session
+				$_SESSION['login_user'] =  $username;
+				$_SESSION['name'] =  $data['name'];
 				// Cek Remember me
 				if (isset($_POST['remember'])) {
 					// buat cookie
-					setcookie('id', $data['id_user'], time() + (60 * 60 * 24 * 30));
-					setcookie('key', hash('sha256', $data['username']), time() + (60 * 60 * 24 * 30)); //(60 * 60 * 24 * 30)
+					setcookie('id', $data['id_user'], time() + (60 * 60 * 24 * 30), '/');
+					setcookie('key', hash('sha256', $data['username']), time() + (60 * 60 * 24 * 30), '/'); //(60 * 60 * 24 * 30)
 				}
 				// Redirect to profile page
 				header("location: profile.php");
