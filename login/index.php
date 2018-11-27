@@ -51,6 +51,8 @@ if(isset($_SESSION['login_user'])){
 
 			<input type="submit" name="submit" id="submit" value="Login">
 		  </form>
+      <h3>Ga punya akun?</h3>
+      <a href="/golkam/register">Daftar</a>
 		</div>
    </div>
 

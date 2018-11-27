@@ -13,6 +13,14 @@ if(!isset($_SESSION['login_user'])) {
     <title>Document</title>
 </head>
 <body>
+    <?php
+        session_start();
+        if(!empty($_SESSION['usernameExist'])) {
+            $message = $_SESSION['usernameExist'];
+            echo "<h1>$message</h1>";
+            unset($_SESSION['usernameExist']);
+        }
+    ?>
     <form action="store.php" method="post">
         <label for="">Name:</label>
         <input type="text" name="name"><br>

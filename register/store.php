@@ -17,6 +17,15 @@
             echo "<script>alert('Fields are required')</script>";
         }
         else{
+            $cekquery = "select * from users where username='$username'";
+            $cekresult = mysqli_query($con, $cekquery);
+            if (mysqli_num_rows($cekresult) > 0) {
+                session_start();
+                $_SESSION['usernameExist'] = 'Username has been used!!';
+                header("Location: index.php");
+                exit();
+            }
+
             // Register query
             $regQuery = "insert into users(name, username, password) values('$name', '$username', '$password')";
             $reg = mysqli_query($con, $regQuery);
