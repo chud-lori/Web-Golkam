@@ -29,6 +29,7 @@ if(isset($_POST['submit'])){
 				// Create session
 				$_SESSION['login_user'] =  $username;
 				$_SESSION['name'] =  $data['name'];
+				$_SESSION['iduser'] =  $data['id_user'];
 				// Cek Remember me
 				if (isset($_POST['remember'])) {
 					// buat cookie

@@ -17,6 +17,8 @@ if (isset($_COOKIE['id']) && isset($_COOKIE['key'])) {
   if ($key === hash('sha256', $row['username'])) {
     // Duplicate session
     $_SESSION['login_user'] =  $row['username'];
+    $_SESSION['name'] =  $row['name'];
+    $_SESSION['iduser'] =  $row['id_user'];
   }
 }
 

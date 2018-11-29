@@ -39,7 +39,7 @@ if(isset($_SESSION['login_admin'])) {
                 <tr>
                     <td><?php echo $data['id_user'] ?></td>
                     <td><?php echo $data['name'] ?></td>
-                    <td><?php echo substr($data['username'], 0, 20). '...'; ?></td>
+                    <td><?php echo $data['username']; ?></td>
                     <td><a href="deletemember.php?id=<?php echo $data['id_user']; ?>" onclick="return confirm('Tenane?')">Delete</a></td>
                 </tr>
             <?php

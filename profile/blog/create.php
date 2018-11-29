@@ -1,7 +1,26 @@
 <?php
 include('../../session.php');
 
-if(isset($_SESSION['login_user'])) {
+// Check cookie
+if (isset($_COOKIE['id']) && isset($_COOKIE['key'])) {
+    // Initiaion to variable
+    $id  = $_COOKIE['id'];
+    $key = $_COOKIE['key'];
+  
+    // Get user data from id
+    $result = mysqli_query($con, "select * from users where id_user = '$id' and role='member'");
+    $row    = mysqli_fetch_array($result);
+  
+    // Check cookie and username
+    if ($key === hash('sha256', $row['username'])) {
+      // Duplicate session
+      $_SESSION['login_user'] =  $row['username'];
+      $_SESSION['name'] =  $row['name'];
+      $_SESSION['iduser'] =  $row['id_user'];
+    }
+}
+  
+  if(isset($_SESSION['login_user'])){
 
 ?>
 <!DOCTYPE html>

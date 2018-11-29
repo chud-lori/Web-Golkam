@@ -31,8 +31,15 @@
             $reg = mysqli_query($con, $regQuery);
             if ($reg) {
                 session_start();
+                // Get user data
+                $queryRegister = "select * from users where username='$username' and role='member'";
+                $resultRegister = mysqli_query($con, $queryRegister);
+                $data = mysqli_fetch_array($resultRegister);
                 // Create session
                 $_SESSION['login_user'] = $username;
+                $_SESSION['name'] =  $data['name'];
+                $_SESSION['iduser'] =  $data['id_user'];
+                
                 // Message
                 $_SESSION['register'] = 'You are registered!!';
                 // Redirect to profile

@@ -2,17 +2,32 @@
 include('../../session.php');
 include('../../con.php');
 
-if(isset($_SESSION['login_user'])) {
+// Check cookie
+if (isset($_COOKIE['id']) && isset($_COOKIE['key'])) {
+	// Initiaion to variable
+	$id  = $_COOKIE['id'];
+	$key = $_COOKIE['key'];
+  
+	// Get user data from id
+	$result = mysqli_query($con, "select * from users where id_user = '$id' and role='member'");
+	$row    = mysqli_fetch_array($result);
+  
+	// Check cookie and username
+	if ($key === hash('sha256', $row['username'])) {
+	  // Duplicate session
+      $_SESSION['login_user'] =  $row['username'];
+      $_SESSION['name'] =  $row['name'];
+      $_SESSION['iduser'] =  $row['id_user'];
+	}
+  }
+  
+if(isset($_SESSION['login_user'])){
 
 include '../../templates/profile/toplayout.php';
 ?>
     <?php
         // Get user data
-        $username = $_SESSION['login_user'];
-        $user = "select id_user from users where username='$username'";
-        $resUser = mysqli_query($con, $user);
-        $dataUser = mysqli_fetch_array($resUser);
-        $idUser = $dataUser['id_user'];
+        $idUser = $_SESSION['iduser'];
 
         // Get content of user
         $query = "select * from contents where id_user = '$idUser'";
