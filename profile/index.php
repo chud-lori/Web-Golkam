@@ -28,13 +28,23 @@ if(isset($_SESSION['login_user'])){
 	<title>Profile</title>
 	<!-- <link href="style.css" rel="stylesheet" type="text/css"> -->
 </head>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+<style>
+	.success-popup {
+		transition: .3s ease all;
+		font-family: 'Roboto', sans-serif;
+	}
+</style>
 
 <body>
 	<?php
         session_start();
         if(!empty($_SESSION['postStore'])) {
            $message = $_SESSION['postStore'];
-           echo "<h1>$message</h1>";
+           echo "$message";
            unset($_SESSION['postStore']);
         }
     ?>

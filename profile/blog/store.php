@@ -68,8 +68,8 @@
                 $didUpload = move_uploaded_file($fileTmpName, $uploadPath);
                 if ($didUpload) {
                     session_start();
-                    $_SESSION['postStore'] = 'Posted!!';
-                    header("Location: ../index.php");
+                    $_SESSION['postStore'] = "Posted!!";
+                    header("Location: list.php");
                     exit();
                 }
                 else {

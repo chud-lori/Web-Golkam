@@ -74,12 +74,12 @@
 
         // DB Config
         $servername = "localhost";
-        $username = "root";
-        $password = "root";
+        $usernamedb = "root";
+        $passworddb = "root";
         $dbname = "golkam";
 
         // Create connection
-        $con = new mysqli($servername, $username, $password, $dbname);
+        $con = new mysqli($servername, $usernamedb, $passworddb, $dbname);
         // Check connection
         if ($con->connect_error) {
             die("Connection failed: " . $conn->connect_error);
@@ -90,7 +90,7 @@
         <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top m-b-0">
             <div class="navbar-header"> <a class="navbar-toggle hidden-sm hidden-md hidden-lg " href="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse"><i class="ti-menu"></i></a>
-                <div class="top-left-part"><a class="logo" href="index.html"><b><img src="/golkam/assets/profile/plugins/images/eliteadmin-logo.png" alt="home" /></b><span class="hidden-xs"><img src="/golkam/assets/profile/plugins/images/eliteadmin-text.png" alt="home" /></span></a></div>
+                <div class="top-left-part"><a class="logo" href="."><b><img src="/golkam/assets/profile/plugins/images/eliteadmin-logo.png" alt="home" /></b><span class="hidden-xs"><img src="/golkam/assets/profile/plugins/images/eliteadmin-text.png" alt="home" /></span></a></div>
                 <ul class="nav navbar-top-links navbar-left hidden-xs">
                     <li><a href="javascript:void(0)" class="open-close hidden-xs waves-effect waves-light"><i class="icon-arrow-left-circle ti-menu"></i></a></li>
                 </ul>
@@ -132,17 +132,17 @@
                     </li>
                     <li class="nav-small-cap m-t-10">--- Main Menu</li>
                     <li> 
-                            <a href="index.html" class="waves-effect active"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i> <span class="hide-menu"> Dashboard</span></a>
+                            <a href="." class="waves-effect active"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i> <span class="hide-menu"> Dashboard</span></a>
                     </li>
                     <li>
                         <a href="#" class="waves-effect"><i data-icon="&#xe008;" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Blog<span class="fa arrow"></span></span></a>
                         <ul class="nav nav-second-level">
-                                <li><a href="form-tinymce-wysihtml5.html">Create Post</a></li>
+                                <li><a href="/golkam/profile/blog/create.php">Create Post</a></li>
                                 <li><a href="/golkam/profile/blog/list.php">List post</a></li>
                         </ul>
                     </li>
                     <li>
-                            <a href="data-table.html" class="waves-effect"><i data-icon="&#xe006;" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Lessons</span></a>
+                            <a href="/golkam/profile/lesson" class="waves-effect"><i data-icon="&#xe006;" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Lessons</span></a>
                     </li>
                     <li><a href="login.html" class="waves-effect"><i class="icon-logout fa-fw"></i> <span class="hide-menu">Log out</span></a></li>
                 </ul>

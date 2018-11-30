@@ -12,7 +12,7 @@ if (isset($submit)) {
     if ($add) {
         session_start();
         $_SESSION['lessonAdd'] = 'Lesson added!!';
-        header("Location: index.php");
+        header("Location: listlesson.php");
         exit();
     }
 }

@@ -36,6 +36,14 @@ include '../../templates/profile/toplayout.php';
             include 'nopost.html';
         }
     ?>
+    <?php
+            session_start();
+            if(!empty($_SESSION['postStore'])) {
+                $message = $_SESSION['postStore'];
+                echo "<h1>$message</h1>";
+                unset($_SESSION['postStore']);
+            }
+        ?>
     	<?php
             session_start();
             if(!empty($_SESSION['update'])) {

@@ -22,19 +22,12 @@ if(isset($_POST['submit'])){
 		$queryLogin = "select * from users where username='$username' and role='admin'";
 		$resultLogin = mysqli_query($con, $queryLogin);
 		$data = mysqli_fetch_array($resultLogin);
-		// if ("") {
-		// 	# code...
-		// } else {
-		// 	# code...
-		// }
 
 		if (mysqli_num_rows($resultLogin) > 0) {
 			// Verify password bcrypt hash
 			if (password_verify($password, $data['password'])) {
 				$_SESSION['login_admin'] =  $username;// Membuat sesi/session
-				$data_user = mysqli_query($konek, "select * from users where username='$username'");
-				$data = mysqli_fetch_array($data_user);
-				$_SESSION['role_user'] = $data['role']; // Role user session
+				$_SESSION['name_admin'] =  $data['name'];// Membuat sesi/session
 				header("location: ../.php"); // Mengarahkan ke halaman profil
 			}
 			else {
