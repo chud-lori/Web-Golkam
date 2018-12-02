@@ -4,7 +4,7 @@
 include('login.php'); // Memasuk-kan skrip Login 
 // Start session
 session_start();
-echo ($_SESSION['login_admin']);
+
 if(isset($_SESSION['login_admin'])){
     header("location: ../");
 }
@@ -61,35 +61,36 @@ if(isset($_SESSION['login_admin'])){
 						<div class="panel-heading">Login</div>
 
 						<div class="panel-body">
-							<form class="form-horizontal" action="" method="post"">
+							<form class="form-horizontal" method="POST" action="">
 
-								<div class=" form-group">
+								<div class="form-group">
 									<label for="username" class="col-md-4 control-label">Username</label>
 
-								<div class="col-md-6">
-									<input id="email" type="username" class="form-control" name="username" required autofocus>
+									<div class="col-md-6">
+										<input id="username" type="text" class="form-control" name="username" required autofocus>
+									</div>
 								</div>
+
+								<div class="form-group">
+									<label for="password" class="col-md-4 control-label">Password</label>
+
+									<div class="col-md-6">
+										<input id="password" type="password" class="form-control" name="password" required>
+									</div>
+								</div>
+
+								<div class="form-group">
+									<div class="col-md-8 col-md-offset-4">
+										<input type="submit" name="submit" value="Login" class="btn btn-primary">
+									</div>
+								</div>
+							</form>
 						</div>
-
-						<div class="form-group">
-							<label for="password" class="col-md-4 control-label">Password</label>
-
-							<div class="col-md-6">
-								<input id="password" type="password" class="form-control" name="password" required>
-
-							</div>
-						</div>
-
-						<div class="form-group">
-							<div class="col-md-8 col-md-offset-4">
-								<input type="submit" class="btn btn-primary" name="submit" id="submit" value="Login">
-							</div>
-						</div>
-						</form>
 					</div>
 				</div>
 			</div>
 		</div>
+
 	</div>
 
 

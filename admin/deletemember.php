@@ -13,9 +13,11 @@ if (isset($_GET['id'])) {
     $delete = mysqli_query($con, $query);
     $queryLearn = "delete from learn where id_user='$id_user'";
     $deleteLearn = mysqli_query($con, $queryLearn);
+    $queryContent = "delete from contents where id_user='$id_user'";
+    $deleteContent = mysqli_query($con, $queryContent);
 
     // Check if update success and send message
-    if ($delete && $deleteLearn) {
+    if ($delete && $deleteLearn && $deleteContent) {
         session_start();
         $_SESSION['deleteMember'] = 'Member Deleted!!';
         header("Location: listmember.php");
