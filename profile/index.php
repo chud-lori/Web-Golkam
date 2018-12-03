@@ -1,5 +1,6 @@
+
 <?php
-include('../.session.php');
+include('../session.php');
 include('../con.php');
 
 // Check cookie
@@ -33,7 +34,7 @@ if(isset($_SESSION['login_user'])){
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" type="image/png" sizes="16x16" href="/golkam/assets/profile/plugins/images/favicon.png">
-    <title>Elite Admin Template - The Ultimate Multipurpose admin template</title>
+    <title>Golkam</title>
     <!-- Bootstrap Core CSS -->
     <link href="/golkam/assets/profile/eliteadmin/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/golkam/assets/profile/plugins/bower_components/bootstrap-extension/css/bootstrap-extension.css" rel="stylesheet">
@@ -175,12 +176,12 @@ if(isset($_SESSION['login_user'])){
             <div class="container-fluid">
                 <div class="row bg-title">
                     <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
-                        <h4 class="page-title">Blog</h4>
+                        <h4 class="page-title">Dashboard</h4>
                     </div>
                     <div class="col-lg-9 col-sm-8 col-md-8 col-xs-12">
                         <ol class="breadcrumb">
                             <!-- <li><a href="#">Dashboard</a></li> -->
-                            <li class="active">List Post</li>
+                            <li class="active">Dashboard</li>
                         </ol>
                     </div>
                     <!-- /.col-lg-12 -->

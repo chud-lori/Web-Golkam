@@ -33,7 +33,7 @@ if(isset($_SESSION['login_user'])){
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" type="image/png" sizes="16x16" href="/golkam/assets/profile/plugins/images/favicon.png">
-    <title>Elite Admin Template - The Ultimate Multipurpose admin template</title>
+    <title>Golkam</title>
     <!-- Bootstrap Core CSS -->
     <link href="/golkam/assets/profile/eliteadmin/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/golkam/assets/profile/plugins/bower_components/bootstrap-extension/css/bootstrap-extension.css" rel="stylesheet">
