@@ -14,7 +14,7 @@ if (isset($_GET['id'])) {
     $img = $getRow['image'];
     // Delete data
     $query = "delete from contents where id_content='$idContent'";
-    $deletePict = unlink('../../images/content/'.$img);
+    $deletePict = unlink('../../images/content/'.$img); // delete image file
     $delete = mysqli_query($con, $query);
 
     // Check if update success and send message

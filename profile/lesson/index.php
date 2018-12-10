@@ -32,8 +32,8 @@ if(isset($_SESSION['login_user'])){
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" type="image/png" sizes="16x16" href="/golkam/assets/profile/plugins/images/favicon.png">
-    <title>Elite Admin Template - The Ultimate Multipurpose admin template</title>
+    <link rel="shortcut icon" href="/golkam/assets/frontend/assets/images/index.png" type="image/x-icon">
+    <title>Golkam</title>
     <!-- Bootstrap Core CSS -->
     <link href="/golkam/assets/profile/eliteadmin/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="/golkam/assets/profile/plugins/bower_components/bootstrap-extension/css/bootstrap-extension.css" rel="stylesheet">
@@ -162,7 +162,7 @@ if(isset($_SESSION['login_user'])){
                     </li>
                     <li class="nav-small-cap m-t-10">--- Main Menu</li>
                     <li>
-                        <a href="." class="waves-effect active"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i>
+                        <a href="/golkam/profile" class="waves-effect active"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i>
                             <span class="hide-menu"> Dashboard</span></a>
                     </li>
                     <li>

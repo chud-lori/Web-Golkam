@@ -32,7 +32,7 @@ if(isset($_SESSION['login_user'])){
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" type="image/png" sizes="16x16" href="/golkam/assets/profile/plugins/images/favicon.png">
+    <link rel="shortcut icon" href="/golkam/assets/frontend/assets/images/index.png" type="image/x-icon">
     <title>Golkam</title>
     <!-- Bootstrap Core CSS -->
     <link href="/golkam/assets/profile/eliteadmin/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">

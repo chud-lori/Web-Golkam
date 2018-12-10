@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <?php
         // get content will edit
@@ -28,14 +30,35 @@
 		else{
             $data = mysqli_fetch_array($resEdit);
     ?>
-            <form action="update.php" method="post">
-                Title:<input type="text" name="title" value="<?php echo $data['title']; ?>"><br>
-                Body:<input type="text" name="body" value="<?php echo $data['body']; ?>"><br>
-                <input type="hidden" value="<?php echo $data['id_content'] ?>" name="idcon">
-                <input type="submit" name="update" value="Update!">
-            </form>
+    <div class="white-box">
+        <form action="update.php" method="post">
+            <label for="">Title</label><br>
+            <input type="text" placeholder="Blog title.." name="title" value="<?php echo $data['title']; ?>"><br><br>
+            <textarea name="body" id="mymce" cols="30" rows="10"><?php echo $data['body']; ?></textarea><br>
+            <input type="hidden" value="<?php echo $data['id_content'] ?>" name="idcon">
+            <input type="submit" class="btn btn-primary" name="update" value="Update!">
+        </form>
+    </div>
     <?php
             }
     ?>
+    <!-- wysuhtml5 Plugin JavaScript -->
+<script src="/golkam/assets/profile/plugins/bower_components/tinymce/tinymce.min.js"></script>
+    <script>
+    $(document).ready(function() {
+        if ($("#mymce").length > 0) {
+            tinymce.init({
+                selector: "textarea#mymce",
+                theme: "modern",
+                height: 300,
+                plugins: [
+                    "advlist autolink link image lists charmap print preview hr anchor pagebreak spellchecker", "searchreplace wordcount visualblocks visualchars code fullscreen insertdatetime media nonbreaking", "save table contextmenu directionality emoticons template paste textcolor"
+                ],
+                toolbar: "insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | l      ink image | print preview media fullpage | forecolor backcolor emoticons",
+            });
+        }
+    });
+    </script>
 </body>
+
 </html>

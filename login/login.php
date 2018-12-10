@@ -37,7 +37,7 @@ if(isset($_POST['submit'])){
 					setcookie('key', hash('sha256', $data['username']), time() + (60 * 60 * 24 * 30), '/'); //(60 * 60 * 24 * 30)
 				}
 				// Redirect to profile page
-				header("location: profile.php");
+				// header("location: profile");
 			}
 			else {
 				// Password wrong return alert

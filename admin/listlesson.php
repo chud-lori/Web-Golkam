@@ -1,5 +1,8 @@
 <?php
+require_once '../con.php';
 // Start session
+// error_reporting(E_ALL); ini_set('display_errors', '1');
+
 session_start();
 
 if(isset($_SESSION['login_admin'])) {
@@ -12,6 +15,7 @@ if(isset($_SESSION['login_admin'])) {
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" href="/golkam/assets/frontend/assets/images/index.png" type="image/x-icon">
 
 	<title>Golkam</title>
 
@@ -35,7 +39,7 @@ if(isset($_SESSION['login_admin'])) {
 					</button>
 
 					<!-- Branding Image -->
-					<a class="navbar-brand" href="/golkam">
+					<a class="navbar-brand" href="/golkam/admin">
 						Golkam
 					</a>
 				</div>
@@ -67,7 +71,7 @@ if(isset($_SESSION['login_admin'])) {
 			</div>
 		</nav>
 
-		// content
+		<!-- // content -->
         <?php
             session_start();
             if(!empty($_SESSION['deleteLesson'])) {
@@ -97,6 +101,7 @@ if(isset($_SESSION['login_admin'])) {
                     <?php
             $query = "select * from lessons";
             $results = mysqli_query($con, $query);
+            
 
             while ($data = mysqli_fetch_array($results)) {
                 ?>
@@ -120,63 +125,10 @@ if(isset($_SESSION['login_admin'])) {
     </table>
                
 
-        // end content
+        <!-- // end content -->
 
 	</div>
 
-	<!-- Scripts -->
-     <script>
-    $(document).ready(function() {
-        $('#myTable').DataTable();
-        $(document).ready(function() {
-            var table = $('#example').DataTable({
-                "columnDefs": [{
-                    "visible": false,
-                    "targets": 2
-                }],
-                "order": [
-                    [2, 'asc']
-                ],
-                "displayLength": 25,
-                "drawCallback": function(settings) {
-                    var api = this.api();
-                    var rows = api.rows({
-                        page: 'current'
-                    }).nodes();
-                    var last = null;
-                    api.column(2, {
-                        page: 'current'
-                    }).data().each(function(group, i) {
-                        if (last !== group) {
-                            $(rows).eq(i).before('<tr class="group"><td colspan="5">' + group + '</td></tr>');
-                            last = group;
-                        }
-                    });
-                }
-            });
-            // Order by the grouping
-            $('#example tbody').on('click', 'tr.group', function() {
-                var currentOrder = table.order()[0];
-                if (currentOrder[0] === 2 && currentOrder[1] === 'asc') {
-                    table.order([2, 'desc']).draw();
-                } else {
-                    table.order([2, 'asc']).draw();
-                }
-            });
-        });
-    });
-    $('#example23').DataTable({
-        dom: 'Bfrtip',
-        buttons: [
-            'copy', 'csv', 'excel', 'pdf', 'print'
-        ]
-    });
-    </script>
-
-    <!-- Data table -->
-    <link href="/golkam/assets/profile/plugins/bower_components/datatables/jquery.dataTables.min.css" rel="stylesheet" type="text/css" />
-    <link href="https://cdn.datatables.net/buttons/1.2.2/css/buttons.dataTables.min.css" rel="stylesheet" type="text/css" />
-    <script src="/golkam/assets/profile/plugins/bower_components/datatables/jquery.dataTables.min.js"></script>
 	<script src="app.js"></script>
 </body>
 
